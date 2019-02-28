@@ -28,29 +28,26 @@ namespace ClassProjectLibrary
 
             return Get(sql);
         }
-        public int insert(List<Dictionary<string, string>> Data)
+        public int insert(Dictionary<string, string> Data)
         {
             string sql = "";
-            string att;
-            string values;
+            string att="";
+            string values="";
 
             sql = "insert into " + Table;
 
-            foreach (var data in Data)
+            foreach (KeyValuePair<string, string> entry in Data)
             {
-                att = "";
-                values = "";
-                foreach (KeyValuePair<string, string> entry in data)
-                {
-                    att += entry.Key + ",";
-                    values += "'" + entry.Value + "',";
-                }
-
-                att = att.Remove(att.Length - 1);
-                values = values.Remove(values.Length - 1);
-                Up(sql + "(" + att + ") values (" + values + ")");
+                att += entry.Key + ",";
+                values += "'" + entry.Value + "',";
             }
-            return 1;
+
+            att = att.Remove(att.Length - 1);
+            values = values.Remove(values.Length - 1);
+
+            sql = sql + "(" + att + ") values (" + values + ")";
+            
+            return Up(sql);
         }
 
         public int update(Dictionary<string, string> Data, string Conditions)
