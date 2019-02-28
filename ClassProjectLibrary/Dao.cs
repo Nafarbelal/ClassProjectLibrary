@@ -14,7 +14,7 @@ namespace ClassProjectLibrary
 
         static Dao()
         {
-            param_co = new string[] { "localhost", "ENSAT", "root", ""};
+            param_co = new string[] { "remotemysql.com", "Wjowyjt1mA", "Wjowyjt1mA", "XkjSmmRfYC"};
         }
 
         //string table, string db, string user, string pass, string server
