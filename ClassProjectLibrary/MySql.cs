@@ -82,7 +82,7 @@ namespace ClassProjectLibrary
             catch (Exception erro)
             {
                 Console.WriteLine("Erro" + erro);
-                con.Close();
+                
             }
 
             con.Close();

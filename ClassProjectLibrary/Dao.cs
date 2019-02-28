@@ -66,7 +66,7 @@ namespace ClassProjectLibrary
             return Up(sql);
         }
 
-        public int delete(string Conditions)
+        public int Delete(string Conditions)
         {
             string sql = "delete from " + Table + " where " + Conditions;
 
