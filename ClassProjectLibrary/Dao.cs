@@ -9,13 +9,17 @@ namespace ClassProjectLibrary
 {
     public abstract class Dao : MySql
     {
-        public string[] param_co;
+        public static string[] param_co;
         string Table;
 
-        public Dao(string table, string db, string user, string pass, string server) : base(db, user, pass, server)
+        static Dao()
         {
-            param_co = new string[]{ db, user, pass, server};
+            param_co = new string[] { "localhost", "ENSAT", "root", ""};
+        }
 
+        //string table, string db, string user, string pass, string server
+        public Dao(string table) : base(param_co[0], param_co[1], param_co[2], param_co[3])
+        {
             Table = table;
         }
 
@@ -28,7 +32,8 @@ namespace ClassProjectLibrary
 
             return Get(sql);
         }
-        public int insert(Dictionary<string, string> Data)
+
+        public int Insert(Dictionary<string, string> Data)
         {
             string sql = "";
             string att="";
@@ -50,7 +55,7 @@ namespace ClassProjectLibrary
             return Up(sql);
         }
 
-        public int update(Dictionary<string, string> Data, string Conditions)
+        public int Update(Dictionary<string, string> Data, string Conditions)
         {
             string sql = "update " + Table + " set ";
 

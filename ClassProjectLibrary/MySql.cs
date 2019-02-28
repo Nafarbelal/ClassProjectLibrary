@@ -16,7 +16,7 @@ namespace ClassProjectLibrary
         MySqlDataReader rs;
         MySqlCommand st;
 
-        protected MySql(string bd, string uid, string password, string server)
+        protected MySql(string server, string bd, string uid, string password)
         {
             Server = server;
             BD = bd;
