@@ -12,7 +12,7 @@ namespace ClassProjectLibrary
 
         int insert(T M);
 
-        ArrayList Select(string Request);
+        ArrayList select(string Request);
 
         int update(T M);
     }
